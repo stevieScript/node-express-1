@@ -5,9 +5,9 @@ const app = express();
 app.use(express.json());
 
 
-app.get('/:name', async function(req, res, next) {
+app.post('/', async function(req, res, next) {
   try {
-    let out = await Promise.all(req.params.developers.map(async dev => { const {data} = await axios.get(`https://api.github.com/users/${dev}`); return {name: data.name, bio: data.bio}; }));
+    let out = await Promise.all(req.body.developers.map(async dev => { const {data} = await axios.get(`https://api.github.com/users/${dev}`); return {name: data.name, bio: data.bio}; }));
     return res.json(out);
   } catch {
     next(err);
