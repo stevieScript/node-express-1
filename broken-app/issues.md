@@ -9,8 +9,6 @@ app.listen(3000, function () {
 
 changed return res.send(JSON.stringify(out)); to return res.json(out); at line 12
 
-Chagned post request to get request at line 5 since no data is changing or updating. It's just an API call to get data. Changed req.body req.params 
-
 changed var and let to const at line 2 and 3
 
 added app.use(express.json()); at line 5
